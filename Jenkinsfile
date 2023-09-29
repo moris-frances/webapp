@@ -38,7 +38,8 @@ pipeline {
         stage('Deploy and Start') {
             steps {
                 echo 'Build and Tests succesful; Deploying:'
-                sh 'cp target/*jar $WEBAPP_DEPLOYMENT'
+                // sh 'cp target/*jar $WEBAPP_DEPLOYMENT'
+                sh 'cp target/*jar ~/workDemo/deployment'
                 sh '$WEBAPP_START'
             }
         }
