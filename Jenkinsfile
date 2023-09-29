@@ -37,7 +37,7 @@ pipeline {
 
         stage('Deploy to Wildfly') {
             steps {
-                echo 'Build and Tests succesful; Deploying to Wildfly Server:'
+                echo 'Build and Tests succesful; Deploying:'
                 sh 'mvn wildfly:deploy'
             }
         }
