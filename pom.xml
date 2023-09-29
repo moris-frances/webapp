@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>sds.tdm</groupId>
 	<artifactId>webapp</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1</version>
 	<name>webapp</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>

@@ -5,7 +5,7 @@ pipeline {
         stage('Build with Maven') {
             steps {
                 echo 'Building with Maven:'
-                sh 'mvn mvn clean compile'
+                sh 'mvn clean compile'
             }
             post{
                 success{
@@ -35,23 +35,24 @@ pipeline {
 
         }
 
-        stage('Deploy to Wildfly') {
+        stage('Deploy and Start') {
             steps {
                 echo 'Build and Tests succesful; Deploying:'
-                sh 'mvn wildfly:deploy'
+                sh 'cp target/*jar $WEBAPP_DEPLOYMENT'
+                sh '$WEBAPP_START'
             }
         }
     }
     post{
         success{
             echo "Finished pipeline for commit ${env.GIT_COMMIT}"
-            archiveArtifacts(artifacts: 'target/*.war', fingerprint: true)
+            archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
             // echo 'Build and Tests succesful; Deploying to Wildfly Server:'
             // sh 'mvn wildfly:deploy'
         }
         failure{
             // mail to: morisfrances2@gmail.com, subject: "${env.JOB_NAME} failed"
-            echo 'Build or Test unsuccesful; Deployment will not be carried out'
+            echo 'Build or Test unsuccesful; Deployment was carried out'
         }
     }
 }
