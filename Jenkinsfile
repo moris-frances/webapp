@@ -40,7 +40,7 @@ pipeline {
                 echo 'Build and Tests succesful; Deploying:'
                 // sh 'cp target/*jar $WEBAPP_DEPLOYMENT'
                 sh 'sudo cp target/*jar /root/workDemo/deployment'
-                sh '$WEBAPP_START'
+                sh '/root/workDemo/scripts/start.sh'
             }
         }
     }
