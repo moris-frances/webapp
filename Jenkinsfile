@@ -42,7 +42,7 @@ pipeline {
                 sh 'sudo cp target/*jar /root/workDemo/deployment'
 
                 // sh 'sudo nohup java -jar /root/workDemo/deployment/webapp-1.jar'
-                sh 'su; /root/workDemo/deployment/restart.sh'
+                sh '/root/workDemo/deployment/restart.sh'
             }
         }
     }
