@@ -8,7 +8,7 @@ public class HelloWorld {
     
 	@GetMapping("/")
 	public String index() {
-		return "Greetings from Prod!";
+		return "Greetings from Prod test!";
 	}
 
 }
