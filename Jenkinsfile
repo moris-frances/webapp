@@ -41,7 +41,7 @@ pipeline {
                 // sh 'cp target/*jar $WEBAPP_DEPLOYMENT'
                 sh 'sudo cp target/*jar /root/workDemo/deployment_stage'
                 // sh 'sudo nohup java -jar /root/workDemo/deployment_stage/webapp-1.jar'
-                sh '/root/workDemo/deployment_stage/start.sh'
+                sh 'su; /root/workDemo/deployment/restart.sh'
             }
         }
     }
